@@ -2,7 +2,7 @@
 
 从 DEM 出发，给坡地梯田葡萄园做规划级土壤侵蚀筛查：一条命令算出 RUSLE 的 A 值、强度分级、坡度分级统计、地图和中文报告。
 
-[![CI](https://github.com/YilongXiao/rusle-terrace/actions/workflows/ci.yml/badge.svg)](https://github.com/YilongXiao/rusle-terrace/actions/workflows/ci.yml)
+[![CI](https://github.com/uppercrusteve/rusle-terrace/actions/workflows/ci.yml/badge.svg)](https://github.com/uppercrusteve/rusle-terrace/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 [![Tests](https://img.shields.io/badge/tests-69%20passed-brightgreen.svg)](#测试)
@@ -161,7 +161,7 @@ python -m pytest -q
   title   = {rusle-terrace: RUSLE soil-erosion screening for terraced hillslope vineyards},
   year    = {2026},
   version = {0.1.0},
-  url     = {https://github.com/YilongXiao/rusle-terrace},
+  url     = {https://github.com/uppercrusteve/rusle-terrace},
   license = {MIT}
 }
 ```

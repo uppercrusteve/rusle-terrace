@@ -10,14 +10,14 @@ abstract: >-
 authors:
   - family-names: Xiao
     given-names: Yilong
-    email: YilongXiao@users.noreply.github.com
+    email: uppercrusteve@users.noreply.github.com
     affiliation: "College of Enology, Northwest A&F University"
 version: 0.1.0
 date-released: "2026-11-17"
 license: MIT
 type: software
-repository-code: "https://github.com/YilongXiao/rusle-terrace"
-url: "https://github.com/YilongXiao/rusle-terrace"
+repository-code: "https://github.com/uppercrusteve/rusle-terrace"
+url: "https://github.com/uppercrusteve/rusle-terrace"
 keywords:
   - RUSLE
   - soil erosion
@@ -27,5 +27,5 @@ keywords:
   - GIS
 identifiers:
   - type: url
-    value: "https://github.com/YilongXiao/rusle-terrace"
+    value: "https://github.com/uppercrusteve/rusle-terrace"
     description: "Source repository"

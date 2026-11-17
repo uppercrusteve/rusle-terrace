@@ -26,4 +26,4 @@ Initial public release.
 - LS uses single-flow D8 without upslope-area cutoff.
 - 30 m grids cannot resolve terrace risers.
 
-[0.1.0]: https://github.com/YilongXiao/rusle-terrace/releases/tag/v0.1.0
+[0.1.0]: https://github.com/uppercrusteve/rusle-terrace/releases/tag/v0.1.0
