@@ -1,0 +1,9 @@
+# Synthetic demonstration parameters (not calibrated to a real vineyard).
+annual_precip_mm: 620
+sand_pct: 45
+silt_pct: 35
+clay_pct: 20
+organic_carbon_pct: 1.2
+cover_factor: 0.25
+support_practice: terraces
+slope_classes_deg: [0, 5, 10, 15, 25, 90]

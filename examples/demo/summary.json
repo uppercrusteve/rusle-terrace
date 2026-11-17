@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-16T18:00:04+00:00",
+  "software": {
+    "name": "rusle-terrace",
+    "version": "0.1.0"
+  },
+  "data": {
+    "dem": "examples\\demo\\dem.tif",
+    "synthetic": true,
+    "label": "合成演示 DEM（非实测）",
+    "crs": "EPSG:32647",
+    "cell_size_m": 30.0,
+    "shape": [
+      300,
+      300
+    ],
+    "total_area_ha": 8061.12,
+    "valid_area_ha": 8061.12
+  },
+  "parameters": {
+    "annual_precip_mm": 620.0,
+    "sand_pct": 45.0,
+    "silt_pct": 35.0,
+    "clay_pct": 20.0,
+    "organic_carbon_pct": 1.2,
+    "cover_factor": 0.25,
+    "support_practice": "terraces",
+    "slope_classes_deg": [
+      0.0,
+      5.0,
+      10.0,
+      15.0,
+      25.0,
+      90.0
+    ]
+  },
+  "factors": {
+    "R_MJ_mm_ha_h_yr": 1512.5082,
+    "K_t_ha_h_ha_MJ_mm": 0.04265,
+    "C_mean": 0.25,
+    "P_mean": 0.18452055555555555
+  },
+  "results_t_ha_yr": {
+    "mean": 103.9079,
+    "median": 8.218,
+    "p90": 253.5536,
+    "max": 6931.3293,
+    "valid_cells": 89568
+  },
+  "severity_area_pct": [
+    {
+      "severity": "微度 (very slight)",
+      "lower_t_ha_yr": 0.0,
+      "upper_t_ha_yr": 2.0,
+      "area_pct": 7.188,
+      "area_ha": 579.42
+    },
+    {
+      "severity": "轻度 (slight)",
+      "lower_t_ha_yr": 2.0,
+      "upper_t_ha_yr": 5.0,
+      "area_pct": 24.709,
+      "area_ha": 1991.79
+    },
+    {
+      "severity": "中度 (moderate)",
+      "lower_t_ha_yr": 5.0,
+      "upper_t_ha_yr": 10.0,
+      "area_pct": 20.821,
+      "area_ha": 1678.41
+    },
+    {
+      "severity": "强烈 (strong)",
+      "lower_t_ha_yr": 10.0,
+      "upper_t_ha_yr": 25.0,
+      "area_pct": 20.358,
+      "area_ha": 1641.06
+    },
+    {
+      "severity": "极强烈 (very strong)",
+      "lower_t_ha_yr": 25.0,
+      "upper_t_ha_yr": null,
+      "area_pct": 26.925,
+      "area_ha": 2170.44
+    }
+  ],
+  "warnings": [
+    "未填洼：D8 在洼地和平坦区可能截断或改道汇流，运行前应先填洼。",
+    "C 与 P 是最大不确定性来源，必须用小区实测或本地文献率定。",
+    "结果为规划级相对筛查，不是小区实测替代。",
+    "P 值假设梯田完好且全覆盖；梯田损毁会显著提高 P。",
+    "DEM 为合成演示数据，不代表任何真实地块。"
+  ]
+}
