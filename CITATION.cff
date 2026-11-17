@@ -8,10 +8,8 @@ abstract: >-
   Cover and support-practice factors are literature values and require local
   plot calibration before operational use.
 authors:
-  - family-names: Xiao
-    given-names: Yilong
+  - name: "uppercrusteve"
     email: uppercrusteve@users.noreply.github.com
-    affiliation: "College of Enology, Northwest A&F University"
 version: 0.1.0
 date-released: "2026-11-17"
 license: MIT

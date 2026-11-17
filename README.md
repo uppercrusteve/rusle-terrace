@@ -157,7 +157,7 @@ python -m pytest -q
 
 ```bibtex
 @software{rusle_terrace2026,
-  author  = {Xiao, Yilong},
+  author  = {uppercrusteve},
   title   = {rusle-terrace: RUSLE soil-erosion screening for terraced hillslope vineyards},
   year    = {2026},
   version = {0.1.0},
@@ -182,4 +182,4 @@ sources and limitations are in `docs/methods.md`.
 
 ## License
 
-MIT © 2026 Yilong Xiao. See [`LICENSE`](LICENSE).
+MIT © 2026 uppercrusteve. See [`LICENSE`](LICENSE).
