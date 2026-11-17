@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use rusle-terrace in a paper, thesis or planning report, cite it as below."
+title: "rusle-terrace: RUSLE soil-erosion screening for terraced hillslope vineyards"
+abstract: >-
+  A small command-line tool that computes planning-level RUSLE soil-erosion
+  estimates (A = R*K*LS*C*P) from a metric DEM, with D8 slope length, slope-class
+  statistics, severity classes, map, JSON summary and Chinese Markdown report.
+  Cover and support-practice factors are literature values and require local
+  plot calibration before operational use.
+authors:
+  - family-names: Xiao
+    given-names: Yilong
+    email: YilongXiao@users.noreply.github.com
+    affiliation: "College of Enology, Northwest A&F University"
+version: 0.1.0
+date-released: "2026-11-17"
+license: MIT
+type: software
+repository-code: "https://github.com/YilongXiao/rusle-terrace"
+url: "https://github.com/YilongXiao/rusle-terrace"
+keywords:
+  - RUSLE
+  - soil erosion
+  - terrace
+  - vineyard
+  - DEM
+  - GIS
+identifiers:
+  - type: url
+    value: "https://github.com/YilongXiao/rusle-terrace"
+    description: "Source repository"
