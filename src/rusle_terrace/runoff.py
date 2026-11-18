@@ -84,8 +84,12 @@ def read_dem(path: str | Path) -> Dem:
     return Dem(data=data, valid=valid, transform=transform, crs=crs, path=p)
 
 
-def read_c_factor(path: str | Path, dem: Dem, fallback: float) -> np.ndarray:
-    """Read a C-factor raster aligned to the DEM; invalid cells fall back to ``fallback``."""
+def read_c_factor(path: str | Path, dem: Dem, fallback: float) -> tuple[np.ndarray, int]:
+    """Read a C-factor raster aligned to the DEM; invalid cells fall back to ``fallback``.
+
+    Returns the array and the number of cells that were replaced, so the
+    caller can report the substitution instead of hiding it.
+    """
     p = Path(path)
     if not p.is_file():
         raise DemError(f"C-factor raster not found: {p}")
@@ -98,10 +102,12 @@ def read_c_factor(path: str | Path, dem: Dem, fallback: float) -> np.ndarray:
         ):
             raise DemError("C-factor raster grid does not match the DEM")
         values = np.asarray(src.read(1, masked=True).filled(np.nan), dtype="float64")
-    c = np.where(np.isfinite(values), values, fallback)
+    invalid = ~np.isfinite(values)
+    replaced = int(invalid.sum())
+    c = np.where(invalid, fallback, values)
     if np.nanmin(c) < 0 or np.nanmax(c) > 1:
         raise DemError("C-factor values must be within 0-1")
-    return c
+    return c, replaced
 
 
 def _fill_nearest(data: np.ndarray, valid: np.ndarray) -> np.ndarray:
@@ -226,6 +232,7 @@ class Analysis:
     k: float
     stats: list[dict[str, float | int | str]]
     severity: np.ndarray
+    notes: tuple[str, ...] = ()
 
     @property
     def valid_erosion(self) -> np.ndarray:
@@ -243,11 +250,15 @@ def analyze(
     filled = _fill_nearest(dem.data, dem.valid)
     slope = slope_degrees(filled, dem.cellsize)
     ls = ls_factor(dem.data, dem.cellsize, dem.valid)
-    c = (
-        read_c_factor(c_raster, dem, params.cover_factor)
-        if c_raster
-        else np.full(dem.shape, params.cover_factor, dtype="float64")
-    )
+    notes: list[str] = []
+    if c_raster:
+        c, replaced = read_c_factor(c_raster, dem, params.cover_factor)
+        if replaced:
+            notes.append(
+                f"C 因子栅格有 {replaced} 个无效像元，已用默认值 {params.cover_factor:g} 填充。"
+            )
+    else:
+        c = np.full(dem.shape, params.cover_factor, dtype="float64")
     if p_override is not None:
         if not 0.0 <= p_override <= 1.0:
             raise ValueError("--p-factor must be within 0-1")
@@ -271,6 +282,7 @@ def analyze(
         k=k,
         stats=stats,
         severity=severity_codes(erosion),
+        notes=tuple(notes),
     )
 
 

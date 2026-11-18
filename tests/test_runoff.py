@@ -110,6 +110,23 @@ def test_c_factor_raster_overrides_scalar(tmp_path: Path) -> None:
     assert overridden.erosion[3, 3] == pytest.approx(base.erosion[3, 3] * 2.0)
 
 
+def test_c_factor_nan_cells_are_reported(tmp_path: Path) -> None:
+    dem_path = write_dem(tmp_path / "d.tif", south_plane(6, 6))
+    data = np.full((6, 6), 0.4, dtype="float32")
+    data[2, 3] = np.nan
+    c_path = tmp_path / "c_nan.tif"
+    with rasterio.open(
+        c_path, "w", driver="GTiff", height=6, width=6, count=1, dtype="float32",
+        crs="EPSG:32647",
+        transform=from_origin(500_000.0, 2_800_000.0, 30.0, 30.0),
+        nodata=np.nan,
+    ) as dst:
+        dst.write(data, 1)
+    result = analyze(dem_path, PARAMS, c_raster=c_path)
+    assert any("1 个无效像元" in note for note in result.notes)
+    assert result.c_factor[2, 3] == pytest.approx(PARAMS.cover_factor)
+
+
 def test_c_factor_raster_grid_mismatch(tmp_path: Path) -> None:
     dem_path = write_dem(tmp_path / "d.tif", south_plane(6, 6))
     c_path = write_dem(tmp_path / "c.tif", np.full((5, 7), 0.3))

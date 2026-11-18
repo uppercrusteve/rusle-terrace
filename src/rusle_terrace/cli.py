@@ -47,6 +47,7 @@ def _run(
     analysis = analyze(dem_path, params, c_raster=c_raster, p_override=p_override)
     outdir.mkdir(parents=True, exist_ok=True)
     warnings = _warnings(params.support_practice, synthetic)
+    warnings.extend(analysis.notes)
     if p_override is not None:
         warnings.append(f"P 已被命令行覆盖为 {p_override:g}，未使用 {params.support_practice} 表。")
 
