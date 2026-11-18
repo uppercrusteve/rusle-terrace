@@ -2,16 +2,14 @@
 
 All notable changes are recorded here. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [0.1.0] - 2026-11-18
+
+Initial public release.
 
 ### Fixed
 
 - C-factor cells replaced by the default value are counted and written to the
   report warnings instead of being substituted silently.
-
-## [0.1.0] - 2026-11-17
-
-Initial public release.
 
 ### Added
 
