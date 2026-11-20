@@ -5,7 +5,7 @@
 [![CI](https://github.com/uppercrusteve/rusle-terrace/actions/workflows/ci.yml/badge.svg)](https://github.com/uppercrusteve/rusle-terrace/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-69%20passed-brightgreen.svg)](#测试)
+[![Tests](https://img.shields.io/badge/tests-70%20passed-brightgreen.svg)](#测试)
 [![RUSLE](https://img.shields.io/badge/model-RUSLE-6b8e23.svg)](docs/methods.md)
 
 ![合成 DEM 演示的侵蚀估算图（真实运行输出：300×300 @ 30 m，三级台地，对数色标与强度图例）](docs/screenshots/erosion-map.png)
